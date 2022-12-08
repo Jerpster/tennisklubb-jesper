@@ -1,0 +1,92 @@
+
+body {margin: 0;}
+
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #04AA6D;}
+
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}
+
+body {
+  background-image: url("tennisbana.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed
+}
+
+.flex-container{
+  background-color: #333;
+  min-width: 200px;
+  max-width: 30%;
+  padding: 30px;
+  color: white;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+ 
+}
+h1{
+  color: white;
+  text-align: center;
+}
+p{
+  color: white;
+font-size: 20px;
+text-align: center;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+ 
+
+.flex-container3{
+  background-color: #333;
+  min-width: 200px;
+  max-width: 30%;
+  
+  padding: 30px;
+  color: white;
+  margin: 5% auto;
+  justify-content: center;
+  align-items: center;
+  
+}
+.flex-container3 {
+  display: flex;
+  flex-direction: column;
+}
+div{
+margin: 5% auto;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boka</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+<style>
+
+  </style>
+</head>
+<body>
+  <ul class="topnav">
+    <li><a href="index.html">Startsida</a></li>
+    <li><a href="öppettider.html">Öppettider</a></li>
+    <li><a href="boka.html">Boka</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+    <li><a href="om oss.html">Om oss</a></li>
+  </ul>
+
+
+  
+
+
+  <div class="flex-container3">
+    <form id="form" action="/">
+        <h1>Boka</h1>
+        <div class="input-control">
+            <label for="name">Namn</label>
+            <input id="name" name="name" type="text">
+            <div class="error"></div>
+        </div>
+        <div class="input-control">
+          <label for="lastname">Efternamn</label>
+          <input id="lastname" name="lastname" type="text">
+          <div class="error"></div>
+      </div>
+      <div class="input-control">
+        <label for="phonenumber">Telefonnummer</label>
+        <input id="phonenumber" name="phonenumber" type="text">
+        <div class="error"></div>
+    </div>
+        <div class="input-control">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text">
+            <div class="error"></div>
+
+        
+        <label for="count">Hur många personer är ni:</label>
+        <select id="count" name="antal">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        </select>
+        
+        <div>
+          <button type="submit">Sign Up</button>
+        </div>
+        </form>
+  
+    
+        <script src="boka.js"></script>
+</body>
+
+
+</html>
