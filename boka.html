@@ -18,50 +18,130 @@
     <li><a href="om oss.html">Om oss</a></li>
   </ul>
 
-
-  
-
-
   <div class="flex-container3">
-    <form id="form" action="/">
-        <h1>Boka</h1>
-        <div class="input-control">
-            <label for="name">Namn</label>
-            <input id="name" name="name" type="text">
-            <div class="error"></div>
+    <div class="form-container">
+      <form action="#" id="form">
+      <h3>Boka</h3>
+      <p> När du bokar banor så ingår det plats i de båda omklädningsrumen för damer och herrar </p>
+        <div class="form-group förnamn">
+          <label for="förnamn">
+            Namn
+          </label>
+          <input type="text" id="förnamn" class="form-control" placeholder="Skriv in ditt namn ">
+          <span class="error-msg">This field cannot be empty</span>
         </div>
-        <div class="input-control">
-          <label for="lastname">Efternamn</label>
-          <input id="lastname" name="lastname" type="text">
-          <div class="error"></div>
-      </div>
-      <div class="input-control">
-        <label for="phonenumber">Telefonnummer</label>
-        <input id="phonenumber" name="phonenumber" type="text">
-        <div class="error"></div>
-    </div>
-        <div class="input-control">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="text">
-            <div class="error"></div>
+        <div class="form-group efternamn">
+          <label for="efternamn">
+            Efternamn
+          </label>
+          <input type="text" id="efternamn" class="form-control" placeholder="Skriv in ditt efternamn ">
+          <span class="error-msg">This field cannot be empty</span>
+        </div>
 
-        
-        <label for="count">Hur många personer är ni:</label>
-        <select id="count" name="antal">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        </select>
-        
-        <div>
-          <button type="submit">Sign Up</button>
+
+        <div class="form-group email">
+          <label for="email">
+            Email
+          </label>
+          <input type="text" id="email" class="form-control" placeholder="Skriv in din email  ">
+          
+          <span class="error-msg"id="ERROR">This field cannot be empty</span>
         </div>
-        </form>
-  
-    
-        <script src="boka.js"></script>
+        <div class="form-group telefonnummer">
+          <label for="telefonnummer">
+            Telefonnummer
+          </label>
+          <input type="number" id="telefonnummer" class="form-control" placeholder="Skriv in ditt telefonnummer ">
+          <span class="error-msg"id="ERROR2">This field cannot be empty</span>
+        </div>
+
+
+        <div class="datum">
+          <div class="form-group datum">
+            <label for="datum">
+              Boka datum och tid
+            </label>
+            <input type="datetime-local" id="datum" class="form-control">
+            <span class="error-msg"id="ERROR3">This field cannot be empty</span>
+          </div>
+
+
+          <p>Det måste vara minst en vuxen med när du bokar och spelar</p>
+
+        </div>
+          <div class="planer-vuxna-barn">
+            <div class="form-group banor">
+              <label for="banor">Antal banor</label>
+              <select name="" class="form-select" id="banor">
+                
+                <option value="1">1</option>
+                <option value="2">2</option>
+              </select>
+              
+            </div>
+
+            <div class="form-group vuxna">
+              <label for="vuxna">Antal vuxna</label>
+              <select name="" class="form-select" id="vuxna">
+                
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+              
+            </div>
+
+            <div class="form-group barn">
+              <label for="barn">Antal barn</label>
+              <select name="" class="form-select" id="barn">
+                
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+              
+            </div>
+          </div>
+          <p>Här får du välja om du vill ha en plats i bastu</p>
+          <div class="form-group bastu">
+            <label for="bastu"> Plats i bastu: </label>
+            <label for="bastuja" class="radio-label">
+                <input type="radio" name="bastu" id="ja">
+                Ja
+            </label>
+            <label for="bastunej" class="radio-label">
+                <input type="radio" name="bastu" id="nej">
+                Nej
+            </label>
+            <span class="error-msg">This field cannot be empty</span>
+            </div>
+
+
+            <div class="button">
+              <button type="submit">
+                Boka
+              </button>
+            </div>
+      
+            
+
+      </form>
+     </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="boka.js"></script>
 </body>
 
 

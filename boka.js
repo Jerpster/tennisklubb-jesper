@@ -1,83 +1,153 @@
-const firstname = document.getElementById('name');
-const lastname = document.getElementById('lastname');
-const phonenumber = document.getElementById('phonenumber');
-const email = document.getElementById('email');
-const count = document.getElementById('count');
+let form = document.getElementById("form");
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
+let förnamnInput = document.getElementById("förnamn");
+let efternamnInput = document.getElementById("efternamn");
+let emailInput = document.getElementById("email");
+let telefonnummerInput = document.getElementById("telefonnummer");
+let datumInput = document.getElementById("datum");
+let bastuRadios = document.querySelectorAll('input[name="bastu"]');
 
-    validateInputs();
-});
+let formGroup = document.getElementsByClassName("form-group");
 
-const setError = (element, message) => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
+// console.log(form)
+// console.log(förnamnInput)
+// console.log(efternamnInput)
+// console.log(emailInput)
+// console.log(telefonnummerInput)
+// console.log(datumInput)
+// console.log(bastuRadios)
+//console.log(formGroup)
 
-    errorDisplay.innerText = message;
-    inputControl.classList.add('error');
-    inputControl.classList.remove('success')
-}
+form.addEventListener("submit", validateForm);
 
-const setSuccess = element => {
-    const inputControl = element.parentElement;
-    const errorDisplay = inputControl.querySelector('.error');
-
-    errorDisplay.innerText = '';
-    inputControl.classList.add('success');
-    inputControl.classList.remove('error');
+document.getElementById("email").onchange = function (e) {
+  e.preventDefault();
+  ValidateEmail();
 };
 
-const isValidEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+function ValidateEmail() {
+  if (emailInput.value === "") {
+    document.getElementById("ERROR").innerText = "This field cannot be empty";
+  } else {
+    document.getElementById("ERROR").innerText = "invalid email";
+  }
+  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value)) {
+    formGroup[2].classList.remove("error");
+    emailInput.classList.remove("invalid");
+
+    return true;
+  }
+
+  formGroup[2].classList.add("error");
+  emailInput.classList.add("invalid");
+
+  return false;
 }
-const isValidphonenumber = phonenumber => {
-    const re = ([0-9]);
-    return re.test(String(phonenumber).toLowerCase());
-}
 
-const validateInputs = () => {
-    const firstnameValue = firstname.value.trim();
-    const lastnameValue = lastname.value.trim();
-    const phonenumberValue = phonenumber.value.trim();
-    const emailValue = email.value.trim();
-    const countValue = count.value.trim();
-
-    if(firstnameValue === '') {
-        setError(firstname, 'Måste ange ett namn');
-    } else {
-        setSuccess(firstname);
-    }
-    if(lastnameValue === '') {
-        setError(lastname, 'Måste ange ett efternamn');
-    } else {
-        setSuccess(lastname);
-    }
-    
-    if(countValue === '0') {
-        setError(count, 'Måste ange rätt antal personer');
-    } else {
-        setSuccess(count);
-    }
-
-    if(emailValue === '') {
-        setError(email, 'Måste ange en email');
-    } else if (!isValidEmail(emailValue)) {
-        setError(email, 'Ange en giltig email');
-    } else {
-        setSuccess(email);
-    }
-    if(phonenumberValue === '') {
-        setError(phonenumber, 'Måste ange ett telefonnummer');
-    } else if (!isValidphonenumber(phonenumberValue)) {
-        setError(phonenumber, 'Ange ett giltigt telefonnummer ');
-    } else {
-        setSuccess(phonenumber);
-    }
-
-    
-
-    
-
+document.getElementById("telefonnummer").onchange = function (e) {
+  e.preventDefault();
+  Validatenumber();
 };
+function Validatenumber() {
+  if (document.getElementById("telefonnummer").value.length < 8) {
+    document.getElementById("ERROR2").innerText = "need atleast 8 digits";
+    formGroup[3].classList.add("error");
+    telefonnummerInput.classList.add("invalid");
+
+    if (telefonnummerInput.value === "") {
+      document.getElementById("ERROR2").innerText =
+        "This field cannot be empty";
+    }
+    return;
+  }
+
+  formGroup[3].classList.remove("error");
+  telefonnummerInput.classList.remove("invalid");
+
+  return false;
+}
+document.getElementById("datum").onchange = function (e) {
+  e.preventDefault();
+  CheckDate();
+};
+function CheckDate() {
+  var selectedText = document.getElementById("datum").value;
+  var selectedDate = new Date(selectedText);
+  var now = new Date();
+  if (selectedDate < now || selectedText === "") {
+    document.getElementById("ERROR3").innerText = "Date cant be blank and must be in the future";
+    formGroup[4].classList.add("error");
+    datumInput.classList.add("invalid"); 
+  } 
+  else {
+    formGroup[4].classList.remove("error");
+    datumInput.classList.remove("invalid");
+  }
+
+}
+
+function validateForm(e) {
+  e.preventDefault();
+
+  let now = new Date();
+
+  if (förnamnInput.value === "") {
+    formGroup[0].classList.add("error");
+    förnamnInput.classList.add("invalid");
+  } else {
+    formGroup[0].classList.remove("error");
+    förnamnInput.classList.remove("invalid");
+  }
+
+  if (efternamnInput.value === "") {
+    formGroup[1].classList.add("error");
+    efternamnInput.classList.add("invalid");
+  } else {
+    formGroup[1].classList.remove("error");
+    efternamnInput.classList.remove("invalid");
+  }
+
+  if (emailInput.value === "") {
+    document.getElementById("ERROR").innerText = "This field cannot be empty";
+    formGroup[2].classList.add("error");
+    emailInput.classList.add("invalid");
+  } else {
+    formGroup[2].classList.remove("error");
+    emailInput.classList.remove("invalid");
+  }
+
+  if (telefonnummerInput.value === "") {
+    formGroup[3].classList.add("error");
+    telefonnummerInput.classList.add("invalid");
+  } else {
+    formGroup[3].classList.remove("error");
+    telefonnummerInput.classList.remove("invalid");
+  }
+
+  if (datumInput.value === "") {
+    formGroup[4].classList.add("error");
+    datumInput.classList.add("invalid");
+  } else {
+    formGroup[4].classList.remove("error");
+    datumInput.classList.remove("invalid");
+  }
+
+  if (bastuRadios[0].checked === false && bastuRadios[1].checked === false) {
+    formGroup[8].classList.add("error");
+  } else {
+    formGroup[8].classList.remove("error");
+  }
+
+  if (
+    formGroup[0].classList.contains("error") === false &&
+    formGroup[1].classList.contains("error") === false &&
+    formGroup[2].classList.contains("error") === false &&
+    formGroup[3].classList.contains("error") === false &&
+    formGroup[4].classList.contains("error") === false &&
+    formGroup[8].classList.contains("error") === false
+  ) {
+    alert("Bokning klar");
+    location. reload()
+  }
+  
+}

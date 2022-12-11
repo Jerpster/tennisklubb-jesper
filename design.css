@@ -35,27 +35,44 @@ body {
   background-attachment: fixed
 }
 
-.flex-container{
-  background-color: #333;
-  min-width: 200px;
-  max-width: 30%;
-  padding: 30px;
-  color: white;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
- 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
 }
+
 h1{
   color: white;
   text-align: center;
+}
+h2{
+  color: white;
+  text-align: center;
+  font-size: 35px;
+  text-align: top;
+}
+h3{
+  color: white;
+  text-align: center;
+  font-size: 30px;
+  text-align: top;
 }
 p{
   color: white;
 font-size: 20px;
 text-align: center;
 }
-
+.flex-container{
+  background-color: #333;
+  min-width: 240px;
+  max-width: 30%;
+  padding: 30px;
+  color: white;
+  margin: 2%auto;
+  justify-content: center;
+  align-items: center;
+}
 
 .flex-container {
   display: flex;
@@ -68,7 +85,22 @@ text-align: center;
     flex-direction: column;
   }
 }
-
+.flex-container2{
+  background-color: #333;
+  min-width: 240px;
+  max-width: 30%;
+  
+  padding: 30px;
+  color: white;
+  margin: 2% auto;
+  justify-content: center;
+  align-items: center;
+  
+}
+.flex-container2 {
+  display: flex;
+  flex-direction: column;
+}
  
 
 .flex-container3{
@@ -78,7 +110,7 @@ text-align: center;
   
   padding: 30px;
   color: white;
-  margin: 5% auto;
+  margin: 2% auto;
   justify-content: center;
   align-items: center;
   
@@ -87,6 +119,41 @@ text-align: center;
   display: flex;
   flex-direction: column;
 }
-div{
-margin: 5% auto;
+.flex-container4{
+  background-color: #333;
+  min-width: 280px;
+  max-width: 30%;
+  
+  padding: 30px;
+  color: white;
+  margin: 2% auto;
+  justify-content: center;
+  align-items: center;
+  
 }
+.flex-container4 {
+  display: flex;
+  flex-direction: column;
+}
+div{
+margin: 3% auto;
+}
+
+
+#förnamn.invalid, #efternamn.invalid, #email.invalid, #telefonnummer.invalid, #adults.invalid, #children.invalid{
+  border: 1px solid #FB5C05;
+}
+
+.error-msg{
+  color: #FB5C05;
+  font-size: 16px;
+  margin-top: 10px;
+  display: none;
+
+}
+
+
+.form-group.error .error-msg{
+  display: block;
+}
+
